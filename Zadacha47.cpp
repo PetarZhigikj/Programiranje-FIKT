@@ -10,7 +10,7 @@
 
 using namespace std;
 
-string kodiranje(string nizaZnaci, int dolzina, int razlika)
+string kodiranje(string nizaZnaci, int dolzina, int razlika)                  
 {
     int i;
     for(i=0;i<dolzina;i++)
@@ -34,7 +34,7 @@ bool uslov (string niza, int dolzina)
     bool p;
     for(i=0;i<dolzina;i++)
     {
-        if((isalpha(niza[i]) || isdigit(niza[i]) || isblank(niza[i])) && dolzina<601)
+        if((isalpha(niza[i]) || isdigit(niza[i]) || isblank(niza[i])) && dolzina<601)    //Uslovot za stringot (brojki, bukvi, prazni mesta i dolzina 600)
         {
             p=true;
         }
@@ -49,7 +49,7 @@ bool uslov (string niza, int dolzina)
     }
     return p;
 }
-int presmetajRazlika()
+int presmetajRazlika()                          
 {
     int broj, najmala=9, cifra;
     cout<<"Vnesi 4 cifren broj osven 0000"<<endl;
@@ -72,21 +72,21 @@ int presmetajRazlika()
 }
 int main()
 {
-    int razlika,operacija,dolzina;
+    int razlika,opcija,dolzina;
     string niza, kodiranString, dekodiranString;
     bool proveri;
     do
     {
         cout<<"Izberi opcija za kodot: \n1. Kodiranje \n2. Dekodiranje \nVnesi 0 za izlez."<<endl;
-        cin>>operacija;
-        while(operacija!=1 && operacija!=2 && operacija!=0)
+        cin>>opcija;
+        while(opcija!=1 && opcija!=2 && opcija!=0)
         {
-            cout<<"Nevalidno. Obidi se povtorno..."<<endl;
-            cin>>operacija;
+            cout<<"Nevalidno. Obidi se povtorno."<<endl;
+            cin>>opcija;
         }
-        if(operacija==1)
+        if(opcija==1)
         {
-            cout<<"Vnesi string so maksimalna dolzina od 600 karakteri. Moze da sodrzi bukvi, brojki i prazni mesta."<<endl;
+            cout<<"Vnesi string so maksimalna dolzina od 600 karakteri. Mozi da sodrzi bukvi, brojki i prazni mesta."<<endl;
             cin.clear();
             cin.sync();
             getline(cin,niza);
@@ -94,7 +94,7 @@ int main()
             proveri=uslov(niza,dolzina);
             while(proveri==false)
             {
-                cout<<"Nevaliden string. Obidi se povtorno..."<<endl;
+                cout<<"Nevaliden string. Obidi se povtorno."<<endl;
                 cin.clear();
                 cin.sync();
                 getline(cin,niza);
@@ -107,7 +107,7 @@ int main()
             kodiranString=kodiranje(nizaZnaci, dolzina, razlika);
             cout<<kodiranString<<endl;
         }
-        if(operacija==2)
+        if(opcija==2)
         {
             cout<<"Vnesi string so maksimalna dolzina od 600 karakteri. Moze da sodrzi bukvi, brojki i prazni mesta."<<endl;
             cin.clear();
@@ -130,7 +130,7 @@ int main()
             dekodiranString=dekodiranje(nizaZnaci, dolzina, razlika);
             cout<<dekodiranString<<endl;
         }
-    } while (operacija!=0);
+    } while (opcija!=0);
     return 0;
 }
 
